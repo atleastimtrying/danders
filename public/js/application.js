@@ -25,17 +25,17 @@
         Ruby: "red",
         PHP: "purple",
         "C#": "pink",
-        "C++": "teal"
+        "C++": "teal",
+        VimL: "silver",
+        Haskell: "#333",
+        Scala: "#cc3",
+        Clojure: "#33c"
       };
     }
     App.prototype.showInfoBox = function(node) {
       var info_span;
       info_span = $('span');
       info_span.html(node.name);
-      info_span.css({
-        top: "" + node.y + "px",
-        left: "" + node.x + "px"
-      });
       return info_span.show();
     };
     App.prototype.hideInfoBox = function() {
@@ -75,14 +75,6 @@
     };
     App.prototype.toRadians = function(degrees) {
       return degrees * (Math.PI / 180);
-    };
-    App.prototype.colours = {
-      Javascript: "green",
-      CoffeeScript: "brown",
-      Java: "orange",
-      Python: "yellow",
-      Ruby: "red",
-      PHP: "purple"
     };
     App.prototype.percentToRadians = function(percent) {
       var degrees, radians;

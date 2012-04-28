@@ -54,6 +54,8 @@ span{
   border-radius:6px;
   background:#efefef;
   position: absolute;
+  top:5px;
+  left:5px;
   z-index: 3;
   display:none;
   text-align:center;

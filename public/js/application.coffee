@@ -22,11 +22,14 @@ class window.App
       PHP: "purple"
       "C#": "pink"
       "C++": "teal"
+      VimL: "silver"
+      Haskell: "#333"
+      Scala: "#cc3"
+      Clojure: "#33c"
 
   showInfoBox: (node) ->  
     info_span = $('span')
     info_span.html node.name
-    info_span.css {top:"#{node.y}px", left:"#{node.x}px"}
     info_span.show()
 
   hideInfoBox:->
@@ -63,6 +66,9 @@ class window.App
       return @colours[language]
     else
       return "rgba(#{@roundom},#{@roundom(255)},#{@roundom(255)})"
+
+  toRadians: (degrees)->
+    degrees * (Math.PI/180)
 
   percentToRadians: (percent)->
     degrees = (percent/100) * 360
