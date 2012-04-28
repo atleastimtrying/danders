@@ -1,0 +1,36 @@
+html, body{
+	margin:0;
+	padding:0;
+	font-family:sans-serif;
+}
+html{
+	background:#efefef;
+}
+body{
+	position:relative;
+	background:#ffffff;
+}
+header, canvas{
+	position:absolute;
+	top:0;
+	left:0;
+	width:960px;
+}
+header{
+	height:40px;
+	top:400px;
+	background:#ccc;
+	h1{
+		font-size:18px;
+		line-height:20px;
+		text-align:center;
+		a{
+			color:#333;
+			text-decoration:none;
+		}
+	}
+}
+canvas{
+	height:400px;
+	cursor:none;
+}
