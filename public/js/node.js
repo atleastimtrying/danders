@@ -14,12 +14,12 @@
       this.currentPercentage = 0;
     }
     Node.prototype.draw = function() {
-      var language, percent, _len, _ref;
+      var language, percent, _ref;
       this.currentPercentage = 0;
       this.ctx.translate(this.x, this.y);
       _ref = this.langauges;
-      for (percent = 0, _len = _ref.length; percent < _len; percent++) {
-        language = _ref[percent];
+      for (language in _ref) {
+        percent = _ref[language];
         this.drawArcByPercentage(language, percent);
       }
       return this.ctx.translate(-this.x, -this.y);

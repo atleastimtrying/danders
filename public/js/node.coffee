@@ -10,7 +10,7 @@ class window.Node
   draw: =>
     @currentPercentage = 0
     @ctx.translate @x , @y 
-    @drawArcByPercentage(language, percent) for language, percent in @langauges
+    @drawArcByPercentage(language, percent) for language, percent of @langauges
     @ctx.translate -@x, -@y
 
   drawArcByPercentage: (language, percent)->
