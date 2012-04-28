@@ -20,7 +20,12 @@
     }
     App.prototype.showInfoBox = function(node) {
       var info_span;
-      return info_span = $('span');
+      info_span = $('span');
+      info_span.html(node.name);
+      return info_span.css({
+        top: "" + node.y + "px",
+        left: "" + node.x + "px"
+      });
     };
     App.prototype.wipe = function() {
       this.ctx.fillStyle = '#efefef';

@@ -38,5 +38,5 @@ class window.Input
     for node in @app.nodes.collection
       if @nodeHitTest mouseX, mouseY, node
         console.log node.name
-        return
+        @app.showInfoBox node
 

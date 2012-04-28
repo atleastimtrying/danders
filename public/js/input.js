@@ -36,17 +36,16 @@
       return hit = Math.sqrt(xs + ys) < node.radius;
     };
     Input.prototype.mouseMove = function(event) {
-      var mouseX, mouseY, node, _i, _len, _ref;
+      var mouseX, mouseY, node, _i, _len, _ref, _results;
       mouseX = event.pageX;
       mouseY = event.pageY;
       _ref = this.app.nodes.collection;
+      _results = [];
       for (_i = 0, _len = _ref.length; _i < _len; _i++) {
         node = _ref[_i];
-        if (this.nodeHitTest(mouseX, mouseY, node)) {
-          console.log(node.name);
-          return;
-        }
+        _results.push(this.nodeHitTest(mouseX, mouseY, node) ? (console.log(node.name), this.app.showInfoBox(node)) : void 0);
       }
+      return _results;
     };
     return Input;
   })();

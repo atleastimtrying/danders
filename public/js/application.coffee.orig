@@ -16,8 +16,7 @@ class window.App
 
   showInfoBox: (node) ->
     info_span = $('span')
-    info_span.html node.name
-    info_span.css {top:"#{node.y}px", left:"#{node.x}px"}
+    
 
   wipe: ->
     @ctx.fillStyle = '#efefef'
@@ -56,10 +55,13 @@ class window.App
     Ruby:"red"
     PHP: "purple"
 
+<<<<<<< HEAD
+=======
   percentToRadians: (percent)->
     degrees = (percent/100) * 360
     radians = degrees * (Math.PI/180)
     return radians
 
+>>>>>>> 49f611a1a79989064fb589d4989de88fa1375eea
 $ ->
   window.app = new App
