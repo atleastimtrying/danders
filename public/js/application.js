@@ -11,12 +11,6 @@
         this.closePath();
         return this.fill();
       };
-      this.ctx.percentToRadians = function(percent) {
-        var degrees, radians;
-        degrees = (percent / 100) * 360;
-        radians = degrees * (Math.pi / 180);
-        return radians;
-      };
       this.nodes = new Nodes(this);
       this.request = new ApiRequester();
       this.input = new Input(this);
@@ -63,6 +57,12 @@
       Python: "yellow",
       Ruby: "red",
       PHP: "purple"
+    };
+    App.prototype.percentToRadians = function(percent) {
+      var degrees, radians;
+      degrees = (percent / 100) * 360;
+      radians = degrees * (Math.PI / 180);
+      return radians;
     };
     return App;
   })();

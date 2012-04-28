@@ -7,10 +7,6 @@ class window.App
       @arc x, y, radius, 0, Math.PI * 2, false
       @closePath()
       @fill()
-    @ctx.percentToRadians = (percent)->
-      degrees = (percent/100) * 360
-      radians = degrees * (Math.pi/180)
-      return radians
     @nodes = new Nodes(@)
     @request = new ApiRequester()
     @input = new Input(@)
@@ -58,6 +54,11 @@ class window.App
     Python:"yellow"
     Ruby:"red"
     PHP: "purple"
+
+  percentToRadians: (percent)->
+    degrees = (percent/100) * 360
+    radians = degrees * (Math.PI/180)
+    return radians
 
 $ ->
   window.app = new App

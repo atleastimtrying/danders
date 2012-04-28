@@ -5,7 +5,6 @@
       this.app = app;
       this.newMasterNode = __bind(this.newMasterNode, this);
       this.newChildNode = __bind(this.newChildNode, this);
-      this.makeNode = __bind(this.makeNode, this);
       this.draw = __bind(this.draw, this);
       this.collection = [];
     }
@@ -19,18 +18,8 @@
       }
       return _results;
     };
-    Nodes.prototype.makeNode = function(event) {
-      return this.newNode({
-        x: event.pageX,
-        y: event.pageY,
-        repo_count: 4,
-        name: 'Dan',
-        followers: 1
-      });
-    };
     Nodes.prototype.newChildNode = function(name, i) {
       var node;
-      console.log(i);
       node = new ChildNode(this.app.ctx, name, this.app.width / 2 - i * 30, this.app.height / 2 + 40, 1);
       return this.collection.push(node);
     };
