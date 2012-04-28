@@ -9,12 +9,12 @@ class window.Input
     @showWindow()
     
   hideWindow: ->
-    $('div').hide();
+    $('div#username_box').hide();
     $('a').show();
     @input.val ""
 
   showWindow: ->
-    $('div').show();
+    $('div#username_box').show();
     $('a').hide();
     false
 
@@ -49,5 +49,8 @@ class window.Input
     
     for node in @app.nodes.collection
       if @nodeHitTest mouseX, mouseY, node
+
+        @app.showMask()
+       
         @app.request.user(node.name, @app.nodes.newMasterNode) 
         return

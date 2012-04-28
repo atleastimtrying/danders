@@ -17,8 +17,13 @@
   <div id="username_box">
     <input type='text' placeholder="username">
   </div>
+<<<<<<< HEAD
+  <span><p>Enter a github username to start.</p></span>
+
+=======
   <span></span>
   <div id="mask" class="hide"></div>
+>>>>>>> 804abc8b7f83b1bfba166d15dfc5556c8e9289aa
   <script src="/public/js/libs/jquery-1.5.min.js"></script>
   <script src="/public/js/libs/underscore-1.1.4.min.js"></script>
   <script src="/public/js/libs/requestAnimFrame.js"></script>

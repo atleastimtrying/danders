@@ -9,12 +9,33 @@ canvas{
   height:100%;
   z-index:1;
 }
-div, a, span{
-  -moz-box-shadow:2px 2px 4px 4px grey;
-  -webkit-box-shadow:2px 2px 4px 4px grey;
-  box-shadow:2px 2px 4px 4px grey;
+
+div#mask {
+  position: absolute;
+  top : 0;
+  left : 0;
+  right : 0;
+  bottom : 0;
+  background-color : #fff;
+  -webkit-transition: opacity 1s ease-out;
 }
-div{
+
+div#mask.show {
+  z-index: 4;
+  opacity: 1;
+}
+
+div#mask.hide {
+  z-index: 0;
+  opacity: 0;
+}
+
+div#username_box, a, span{
+  -moz-box-shadow:0px 0px 10px 0px rgba(150,150,150,0.2);
+  -webkit-box-shadow: 0px 0px 10px 0px rgba(150,150,150,0.2);
+  box-shadow: 0px 0px 10px 0px rgba(150,150,150,0.2);
+}
+div#username_box {
   position:absolute;
   width:400px;
   height:100px;
@@ -25,7 +46,7 @@ div{
   z-index:2;
   border-radius:4px;
 }
-div input{
+div#username_box input{
   width:280px;
   margin:30px 50px;
   height:30px;

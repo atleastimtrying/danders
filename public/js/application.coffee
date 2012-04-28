@@ -32,6 +32,14 @@ class window.App
       "Objective-C": "#3c3"
       "C": "#fff0f0"
 
+  hideMask: () ->
+    # start fade
+    $('#mask').removeClass('show').addClass('hide')
+
+  showMask: () ->
+    # start fade
+    $('#mask').removeClass('hide').addClass('show')
+
   showInfoBox: (node) ->  
     info_span = $('span')
     info_span.html node.name
