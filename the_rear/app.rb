@@ -75,7 +75,6 @@ def get_lang_distribution(lang_array)
 	end
 
 	lang_count.each do |lang, count|
-		puts count
 		lang_count[lang] = count * factor
 	end
 

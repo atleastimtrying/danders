@@ -13,11 +13,25 @@ class window.App
     $(window).resize @resize
     @resize()
     @animate()
+    @colours =
+      JavaScript:"green"
+      CoffeeScript:"brown"
+      Java:"orange"
+      Python:"yellow"
+      Ruby:"red"
+      PHP: "purple"
+      "C#": "pink"
+      "C++": "teal"
 
-  showInfoBox: (node) ->
+  showInfoBox: (node) ->  
     info_span = $('span')
-    
+    info_span.html node.name
+    info_span.css {top:"#{node.y}px", left:"#{node.x}px"}
+    info_span.show()
 
+  hideInfoBox:->
+    $('span').hide()
+    
   wipe: ->
     @ctx.fillStyle = '#efefef'
     @ctx.fillRect 0, 0, @width, @height
@@ -45,7 +59,16 @@ class window.App
     @ctx.fillEllipse @width, @height, 10
 
   getLanguageColour: (language)->
+<<<<<<< HEAD
+    if @colours[language]
+      return @colours[language]
+    else
+      return "rgba(#{@roundom},#{@roundom(255)},#{@roundom(255)})"
+=======
     return @colours[language]
+
+  toRadians: (degrees) ->
+    degrees * (Math.PI / 180)
 
   colours:
     Javascript:"green"
@@ -54,14 +77,14 @@ class window.App
     Python:"yellow"
     Ruby:"red"
     PHP: "purple"
+>>>>>>> 38e94194d402007e7f7afdf6976a91c07b28cda0
 
-<<<<<<< HEAD
-=======
   percentToRadians: (percent)->
     degrees = (percent/100) * 360
-    radians = degrees * (Math.PI/180)
+    radians = @toRadians(degrees)
     return radians
 
->>>>>>> 49f611a1a79989064fb589d4989de88fa1375eea
+  roundom: (int)->
+    Math.round Math.random() * int
 $ ->
   window.app = new App

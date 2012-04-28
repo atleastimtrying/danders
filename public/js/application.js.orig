@@ -73,17 +73,6 @@
         return "rgba(" + this.roundom + "," + (this.roundom(255)) + "," + (this.roundom(255)) + ")";
       }
     };
-    App.prototype.toRadians = function(degrees) {
-      return degrees * (Math.PI / 180);
-    };
-    App.prototype.colours = {
-      Javascript: "green",
-      CoffeeScript: "brown",
-      Java: "orange",
-      Python: "yellow",
-      Ruby: "red",
-      PHP: "purple"
-    };
     App.prototype.percentToRadians = function(percent) {
       var degrees, radians;
       degrees = (percent / 100) * 360;

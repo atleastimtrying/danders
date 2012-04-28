@@ -66,7 +66,7 @@ class window.App
 
   percentToRadians: (percent)->
     degrees = (percent/100) * 360
-    radians = degrees * (Math.PI/180)
+    radians = @toRadians(degrees)
     return radians
 
   roundom: (int)->
