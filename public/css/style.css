@@ -21,7 +21,7 @@ div#mask {
 }
 
 div#mask.show {
-  z-index: 4;
+  z-index: 10;
   opacity: 1;
 }
 
@@ -54,6 +54,15 @@ div#username_box input{
   font-size:30px;
   border-radius:4px;
 }
+div#key{
+  position:absolute;
+  bottom:5px;
+  left:5px;
+  color:#efefef;
+  z-index:4;
+  display:block;
+  width:200px;
+}
 a{
   position:absolute;
   top:5px;
@@ -82,4 +91,10 @@ span{
   z-index: 3;
   text-align:left;
   padding:5px;
+}
+.colourblock{
+  width:20px;
+  height:20px;
+  border-radius:10px;
+  display:inline-block;
 }

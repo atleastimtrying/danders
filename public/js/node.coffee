@@ -7,11 +7,22 @@ class window.Node
     @colour = "rgba(0,0,0,0.5)"
     @currentRadians = 0
     @sprite = @makeImage(@languages)
+    @makeKey()
 
   draw: =>
     @ctx.translate @x, @y 
     @ctx.drawImage @sprite, -@radius, -@radius
     @ctx.translate -@x, -@y
+    @writeName() if @name isnt null
+
+  writeName: ->
+    @ctx.fillStyle = "#333"
+    @ctx.font = "46px sans-serif"
+    @ctx.textAlign = "center"
+    @ctx.textBaseline = "top"
+    @ctx.translate @x, @y + 50
+    @ctx.fillText @name, 0, @radius
+    @ctx.translate -@x, -(@y + 50)
 
   makeImage: (languages)->
     canvas = document.createElement('canvas')
@@ -39,3 +50,9 @@ class window.Node
     ctx.fillStyle = colour
     ctx.fill()
     @currentRadians += percentInRadians
+
+  makeKey: ->
+    string = "<h2>Language Key</h2><ul>"
+    string += "<li><div class='colourblock' style='background-color:#{app.getLanguageColour(language)};'></div> #{Math.round(percent)}&percnt; : #{language}</li>" for language, percent of @languages
+    string += "<ul>"
+    $('#key').html string
