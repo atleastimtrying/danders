@@ -18,9 +18,13 @@
       }
       return _results;
     };
-    Nodes.prototype.newChildNode = function(name, i) {
-      var node;
-      node = new ChildNode(this.app.ctx, name, this.app.width / 2 - i * 30, this.app.height / 2 + 40, 1);
+    Nodes.prototype.newChildNode = function(name, i, count, masterNode) {
+      var angle, node, rad, x, y;
+      angle = (360 / count) * i;
+      rad = masterNode.radius + 20;
+      x = masterNode.x + (rad * Math.cos(angle));
+      y = masterNode.y + (rad * Math.sin(angle));
+      node = new ChildNode(this.app.ctx, name, x, y, 1);
       return this.collection.push(node);
     };
     Nodes.prototype.newMasterNode = function(data) {
@@ -31,7 +35,7 @@
       _results = [];
       for (i = 0, _len = _ref.length; i < _len; i++) {
         follower = _ref[i];
-        _results.push(this.newChildNode(follower, i));
+        _results.push(this.newChildNode(follower, i, data.followers.length, node));
       }
       return _results;
     };
