@@ -3,12 +3,14 @@
   window.Input = (function() {
     function Input(app) {
       this.app = app;
+      this.canvasClick = __bind(this.canvasClick, this);
       this.mouseMove = __bind(this.mouseMove, this);
       this.keyPress = __bind(this.keyPress, this);
       this.input = $('input');
       this.input.keypress(this.keyPress);
       $('a').click(this.showWindow);
-      $('canvas').mousemove(this.mouseMove);
+      this.app.canvas.mousemove(this.mouseMove);
+      this.app.canvas.click(this.canvasClick);
       this.showWindow();
     }
     Input.prototype.hideWindow = function() {
@@ -43,7 +45,19 @@
       _results = [];
       for (_i = 0, _len = _ref.length; _i < _len; _i++) {
         node = _ref[_i];
-        _results.push(this.nodeHitTest(mouseX, mouseY, node) ? (console.log(node.name), this.app.showInfoBox(node)) : void 0);
+        _results.push(this.nodeHitTest(mouseX, mouseY, node) ? this.app.showInfoBox(node) : this.app.hideInfoBox());
+      }
+      return _results;
+    };
+    Input.prototype.canvasClick = function(event) {
+      var mouseX, mouseY, node, _i, _len, _ref, _results;
+      mouseX = event.pageX;
+      mouseY = event.pageY;
+      _ref = this.app.nodes.collection;
+      _results = [];
+      for (_i = 0, _len = _ref.length; _i < _len; _i++) {
+        node = _ref[_i];
+        _results.push(this.nodeHitTest(mouseX, mouseY, node) ? this.app.request.user(node.name, this.app.nodes.newMasterNode) : void 0);
       }
       return _results;
     };

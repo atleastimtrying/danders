@@ -10,6 +10,7 @@ class window.Nodes
     @collection.push node
        
   newMasterNode: (data)=>
+    @collection = []
     node = new Node @app.ctx, data, @app.width/2, @app.height/2, 3
     @collection.push node
     

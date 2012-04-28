@@ -48,9 +48,14 @@ a:hover{
 span{
   height:50px;
   width:100px;
-  border:1px solid #000;
+  border:1px solid #333;
+  color:#333;
   display:block;
-  background:#fff;
+  border-radius:6px;
+  background:#efefef;
   position: absolute;
-  z-index: 100;
+  z-index: 3;
+  display:none;
+  text-align:center;
+  padding:5px;
 }
