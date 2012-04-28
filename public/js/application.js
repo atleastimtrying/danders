@@ -18,6 +18,10 @@
       this.resize();
       this.animate();
     }
+    App.prototype.showInfoBox = function(node) {
+      var info_span;
+      return info_span = $('span');
+    };
     App.prototype.wipe = function() {
       this.ctx.fillStyle = '#efefef';
       return this.ctx.fillRect(0, 0, this.width, this.height);
