@@ -3,6 +3,9 @@ class window.App
     @canvas = $ 'canvas'
     @ctx = @canvas[0].getContext '2d'
     @ctx.fillEllipse = (x,y,radius)->
+      @shadowOffsetX = 2
+      @shadowOffsetY = 2
+      @shadowBlur = 4
       @beginPath()
       @arc x, y, radius, 0, Math.PI * 2, false
       @closePath()
@@ -26,6 +29,8 @@ class window.App
       Haskell: "#333"
       Scala: "#cc3"
       Clojure: "#33c"
+      "Objective-C": "#3c3"
+      "C": "#fff0f0"
 
   showInfoBox: (node) ->  
     info_span = $('span')

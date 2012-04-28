@@ -5,6 +5,9 @@ class window.Nodes
   draw: =>
     node.draw() for node in @collection
 
+  resize: =>
+    node.resize() for node in @collection
+
   newChildNode: (name, i, count, masterNode)=>
     angle = (360 / count) * (i + 1)
     radians = @app.toRadians(angle)
