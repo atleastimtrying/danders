@@ -51,18 +51,14 @@ a:hover{
   border:1px solid #efefef;
 }
 span{
-  height:50px;
-  width:100px;
-  border:1px solid #333;
-  color:#333;
+  height:100%;
+  width:200px;
+  border-right:1px solid #000;
+  color:#efefef;
   display:block;
-  border-radius:6px;
-  background:#efefef;
+  background:#333;
   position: absolute;
-  top:5px;
-  left:5px;
   z-index: 3;
-  display:none;
-  text-align:center;
+  text-align:left;
   padding:5px;
 }

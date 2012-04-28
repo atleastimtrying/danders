@@ -11,7 +11,7 @@ class window.App
       @closePath()
       @fill()
     @nodes = new Nodes(@)
-    @request = new ApiRequester()
+    @request = new ApiRequester(@)
     @input = new Input(@)
     $(window).resize @resize
     @resize()
