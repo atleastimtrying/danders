@@ -11,23 +11,37 @@
       this.followers = data.followers;
       this.languages = data.languages;
       this.colour = "rgba(0,0,0,0.5)";
-      this.currentPercentage = 0;
+      this.currentRadians = 0;
+      this.makeImage(this.languages);
     }
     Node.prototype.draw = function() {
-      var language, percent, _ref;
-      this.currentPercentage = 0;
       this.ctx.translate(this.x, this.y);
-      _ref = this.langauges;
-      for (language in _ref) {
-        percent = _ref[language];
-        this.drawArcByPercentage(language, percent);
-      }
       return this.ctx.translate(-this.x, -this.y);
     };
-    Node.prototype.drawArcByPercentage = function(language, percent) {
-      this.beginPath();
-      this.arc(0, 0, this.radius, 0, Math.PI * 2, false);
-      return this.closePath();
+    Node.prototype.makeImage = function(languages) {
+      var canvas, ctx, language, percent, _ref;
+      canvas = document.createElement('canvas');
+      ctx = canvas.getContext('2d');
+      canvas.width = this.radius * 2;
+      canvas.height = this.radius * 2;
+      _ref = this.languages;
+      for (language in _ref) {
+        percent = _ref[language];
+        this.drawArcByPercentage(ctx, language, percent, canvas.width / 2, canvas.height / 2);
+      }
+      return window.open(canvas.toDataURL(), "pieImage", "left=0,top=0,width=" + canvas.width + ",height=" + canvas.height + ",toolbar=0,resizable=0");
+    };
+    Node.prototype.drawArcByPercentage = function(ctx, language, percent, x, y) {
+      var colour, percentInRadians;
+      percentInRadians = window.app.percentToRadians(percent);
+      colour = app.getLanguageColour(language);
+      ctx.beginPath();
+      ctx.moveTo(x, y);
+      ctx.arc(x, y, this.radius, this.currentRadians, this.currentRadians + percentInRadians, false);
+      ctx.closePath();
+      ctx.fillStyle = colour;
+      ctx.fill();
+      return this.currentRadians += percentInRadians;
     };
     return Node;
   })();

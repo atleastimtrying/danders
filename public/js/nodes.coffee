@@ -5,16 +5,7 @@ class window.Nodes
   draw: =>
     node.draw() for node in @collection
 
-  makeNode: (event)=>
-    @newNode 
-      x: event.pageX
-      y: event.pageY
-      repo_count: 4
-      name: 'Dan'
-      followers: 1
-
   newChildNode: (name, i)=>
-    console.log i
     node = new ChildNode @app.ctx, name, @app.width/2 - i *30, @app.height/2 + 40, 1
     @collection.push node
        
