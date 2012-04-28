@@ -1,4 +1,6 @@
 class window.ApiRequester
+  constructor: ->
+    #dunno yet?
   repos: (name)->
     $.get '/repos/#{name}.json', (data)->
       result = 'fail!'

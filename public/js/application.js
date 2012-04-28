@@ -12,7 +12,7 @@
         return this.fill();
       };
       this.nodes = new Nodes(this.ctx);
-      this.request = new apiRequester();
+      this.request = new ApiRequester();
       $(window).resize(this.resize);
       this.resize();
       this.animate();

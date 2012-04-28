@@ -8,7 +8,7 @@ class window.App
       @closePath()
       @fill()
     @nodes = new Nodes(@ctx)
-    @request = new apiRequester()
+    @request = new ApiRequester()
     $(window).resize @resize
     @resize()
     @animate()
