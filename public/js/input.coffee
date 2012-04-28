@@ -38,7 +38,10 @@ class window.Input
 
     for node in @app.nodes.collection
       if @nodeHitTest mouseX, mouseY, node
+        node.colour = "#333"
         @app.showInfoBox node
+      else
+        node.colour = "#ccc"
 
   canvasClick: (event) =>
     mouseX = event.pageX

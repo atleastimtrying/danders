@@ -65,7 +65,7 @@ class window.App
     if @colours[language]
       return @colours[language]
     else
-      return "rgba(#{@roundom},#{@roundom(255)},#{@roundom(255)})"
+      return "rgba(#{@roundom(255)},#{@roundom(255)},#{@roundom(255)})"
 
   toRadians: (degrees)->
     degrees * (Math.PI/180)
@@ -76,6 +76,6 @@ class window.App
     return radians
 
   roundom: (int)->
-    Math.round Math.random() * int
+    Math.round(Math.random() * int)
 $ ->
   window.app = new App
