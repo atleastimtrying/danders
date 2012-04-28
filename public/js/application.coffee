@@ -52,6 +52,9 @@ class window.App
   getLanguageColour: (language)->
     return @colours[language]
 
+  toRadians: (degrees) ->
+    degrees * (Math.PI / 180)
+
   colours:
     Javascript:"green"
     CoffeeScript:"brown"
@@ -62,7 +65,7 @@ class window.App
 
   percentToRadians: (percent)->
     degrees = (percent/100) * 360
-    radians = degrees * (Math.PI/180)
+    radians = @toRadians(degrees)
     return radians
 
 $ ->

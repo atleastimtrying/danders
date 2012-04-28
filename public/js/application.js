@@ -59,6 +59,9 @@
     App.prototype.getLanguageColour = function(language) {
       return this.colours[language];
     };
+    App.prototype.toRadians = function(degrees) {
+      return degrees * (Math.PI / 180);
+    };
     App.prototype.colours = {
       Javascript: "green",
       CoffeeScript: "brown",
@@ -70,7 +73,7 @@
     App.prototype.percentToRadians = function(percent) {
       var degrees, radians;
       degrees = (percent / 100) * 360;
-      radians = degrees * (Math.PI / 180);
+      radians = this.toRadians(degrees);
       return radians;
     };
     return App;
