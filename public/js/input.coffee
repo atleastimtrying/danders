@@ -48,4 +48,6 @@ class window.Input
     mouseY = event.pageY
     
     for node in @app.nodes.collection
-      @app.request.user(node.name, @app.nodes.newMasterNode) if @nodeHitTest mouseX, mouseY, node
+      if @nodeHitTest mouseX, mouseY, node
+        @app.request.user(node.name, @app.nodes.newMasterNode) 
+        return
