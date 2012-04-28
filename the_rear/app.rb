@@ -63,18 +63,20 @@ end
 def get_lang_distribution(lang_array)
 
 	lang_count = {}
+	total = 0
 
 	lang_array.compact!
 
+	factor = 100.to_f / lang_array.length
+
 	lang_array.each do |lang|
-		lang_count[lang] = 0 if not lang_count.include? lang
+		lang_count[lang] = 0 if not lang_count.include?(lang)
 		lang_count[lang] = lang_count[lang] + 1
 	end
 
-	puts lang_count.inspect
-
 	lang_count.each do |lang, count|
-		lang_count[lang] = (100 / lang_array.length) * count
+		puts count
+		lang_count[lang] = count * factor
 	end
 
 	lang_count

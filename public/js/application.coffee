@@ -18,6 +18,10 @@ class window.App
     @resize()
     @animate()
 
+  showInfoBox: (node) ->
+    info_span = $('span')
+    
+
   wipe: ->
     @ctx.fillStyle = '#efefef'
     @ctx.fillRect 0, 0, @width, @height
@@ -54,5 +58,6 @@ class window.App
     Python:"yellow"
     Ruby:"red"
     PHP: "purple"
+
 $ ->
   window.app = new App
