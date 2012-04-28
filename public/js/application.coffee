@@ -9,6 +9,7 @@ class window.App
       @fill()
     @nodes = new Nodes(@ctx)
     @request = new ApiRequester()
+    @input = new Input()
     $(window).resize @resize
     @resize()
     @animate()
@@ -38,6 +39,8 @@ class window.App
     @ctx.fillEllipse @width, 0, 10
     @ctx.fillEllipse 0, @height, 10
     @ctx.fillEllipse @width, @height, 10
-    
+
+  yell: (data)-> console.log data
+
 $ ->
   window.app = new App

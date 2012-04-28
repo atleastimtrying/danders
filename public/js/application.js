@@ -13,6 +13,7 @@
       };
       this.nodes = new Nodes(this.ctx);
       this.request = new ApiRequester();
+      this.input = new Input();
       $(window).resize(this.resize);
       this.resize();
       this.animate();
@@ -41,6 +42,9 @@
       this.ctx.fillEllipse(this.width, 0, 10);
       this.ctx.fillEllipse(0, this.height, 10);
       return this.ctx.fillEllipse(this.width, this.height, 10);
+    };
+    App.prototype.yell = function(data) {
+      return console.log(data);
     };
     return App;
   })();

@@ -1,17 +1,21 @@
 class window.Input
-  constructor: ->
-    $('input').keypress @keyPress
+  constructor: (@app)->
+    @input = $('input')
+    @input.keypress @keyPress
     $('a').click @showWindow
     @showWindow()
     
   hideWindow: ->
     $('div').hide();
     $('a').show();
+    @input.val ""
 
   showWindow: ->
-    $('div').hide();
-    $('a').show();
+    $('div').show();
+    $('a').hide();
     false
 
-  keyPress: (event)->
-      console.log event
+  keyPress: (event)=>
+    if event.keyCode is 13
+      @app.request.user @input.val(), @app.yell
+      @hideWindow()
