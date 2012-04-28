@@ -38,6 +38,7 @@
       var colour, percentInRadians;
       percentInRadians = window.app.percentToRadians(percent);
       colour = app.getLanguageColour(language);
+      console.log(language);
       ctx.beginPath();
       ctx.moveTo(x, y);
       ctx.arc(x, y, this.radius, this.currentRadians, this.currentRadians + percentInRadians, false);

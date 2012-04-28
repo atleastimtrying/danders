@@ -27,6 +27,7 @@ class window.Node
   drawArcByPercentage: (ctx,language, percent,x,y)->
     percentInRadians = window.app.percentToRadians percent
     colour = app.getLanguageColour(language)
+    console.log language
     ctx.beginPath()
     ctx.moveTo(x,y)
     ctx.arc x, y, @radius, @currentRadians, @currentRadians + percentInRadians, false

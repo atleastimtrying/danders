@@ -45,7 +45,7 @@
       _results = [];
       for (_i = 0, _len = _ref.length; _i < _len; _i++) {
         node = _ref[_i];
-        _results.push(this.nodeHitTest(mouseX, mouseY, node) ? this.app.showInfoBox(node) : this.app.hideInfoBox());
+        _results.push(this.nodeHitTest(mouseX, mouseY, node) ? this.app.showInfoBox(node) : void 0);
       }
       return _results;
     };

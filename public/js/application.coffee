@@ -13,6 +13,15 @@ class window.App
     $(window).resize @resize
     @resize()
     @animate()
+    @colours =
+      JavaScript:"green"
+      CoffeeScript:"brown"
+      Java:"orange"
+      Python:"yellow"
+      Ruby:"red"
+      PHP: "purple"
+      "C#": "pink"
+      "C++": "teal"
 
   showInfoBox: (node) ->  
     info_span = $('span')
@@ -50,20 +59,17 @@ class window.App
     @ctx.fillEllipse @width, @height, 10
 
   getLanguageColour: (language)->
-    return @colours[language]
-
-  colours:
-    Javascript:"green"
-    CoffeeScript:"brown"
-    Java:"orange"
-    Python:"yellow"
-    Ruby:"red"
-    PHP: "purple"
+    if @colours[language]
+      return @colours[language]
+    else
+      return "rgba(#{@roundom},#{@roundom(255)},#{@roundom(255)})"
 
   percentToRadians: (percent)->
     degrees = (percent/100) * 360
     radians = degrees * (Math.PI/180)
     return radians
 
+  roundom: (int)->
+    Math.round Math.random() * int
 $ ->
   window.app = new App

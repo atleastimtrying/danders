@@ -39,8 +39,6 @@ class window.Input
     for node in @app.nodes.collection
       if @nodeHitTest mouseX, mouseY, node
         @app.showInfoBox node
-      else
-        @app.hideInfoBox()
 
   canvasClick: (event) =>
     mouseX = event.pageX

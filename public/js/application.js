@@ -17,6 +17,16 @@
       $(window).resize(this.resize);
       this.resize();
       this.animate();
+      this.colours = {
+        JavaScript: "green",
+        CoffeeScript: "brown",
+        Java: "orange",
+        Python: "yellow",
+        Ruby: "red",
+        PHP: "purple",
+        "C#": "pink",
+        "C++": "teal"
+      };
     }
     App.prototype.showInfoBox = function(node) {
       var info_span;
@@ -57,21 +67,20 @@
       return this.ctx.fillEllipse(this.width, this.height, 10);
     };
     App.prototype.getLanguageColour = function(language) {
-      return this.colours[language];
-    };
-    App.prototype.colours = {
-      Javascript: "green",
-      CoffeeScript: "brown",
-      Java: "orange",
-      Python: "yellow",
-      Ruby: "red",
-      PHP: "purple"
+      if (this.colours[language]) {
+        return this.colours[language];
+      } else {
+        return "rgba(" + this.roundom + "," + (this.roundom(255)) + "," + (this.roundom(255)) + ")";
+      }
     };
     App.prototype.percentToRadians = function(percent) {
       var degrees, radians;
       degrees = (percent / 100) * 360;
       radians = degrees * (Math.PI / 180);
       return radians;
+    };
+    App.prototype.roundom = function(int) {
+      return Math.round(Math.random() * int);
     };
     return App;
   })();
