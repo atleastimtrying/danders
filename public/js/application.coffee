@@ -8,6 +8,7 @@ class window.App
       @closePath()
       @fill()
     @ctx.percentToRadians = (percent)->
+      degrees = (percent/100) * 360
       radians = degrees * (Math.pi/180)
       return radians
     @nodes = new Nodes(@)

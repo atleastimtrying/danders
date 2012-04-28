@@ -12,7 +12,8 @@
         return this.fill();
       };
       this.ctx.percentToRadians = function(percent) {
-        var radians;
+        var degrees, radians;
+        degrees = (percent / 100) * 360;
         radians = degrees * (Math.pi / 180);
         return radians;
       };
