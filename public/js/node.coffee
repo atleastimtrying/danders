@@ -16,9 +16,9 @@ class window.Node
   makeImage: (languages)->
     canvas = document.createElement('canvas')
     ctx = canvas.getContext('2d')
-    canvas.width = @radius *2
-    canvas.height = @radius *2
-    @drawArcByPercentage(ctx,language, percent,canvas.width/2,canvas.height/2) for language, percent of @languages
+    canvas.width = @radius *2 + 10
+    canvas.height = @radius *2 + 10
+    @drawArcByPercentage(ctx,language, percent,@radius,@radius) for language, percent of @languages
     #window.open(canvas.toDataURL(), "pieImage", "left=0,top=0,width=#{canvas.width},height=#{canvas.height},toolbar=0,resizable=0")
     img = new Image()
     img.src = canvas.toDataURL()
@@ -28,6 +28,10 @@ class window.Node
     percentInRadians = window.app.percentToRadians percent
     colour = app.getLanguageColour(language)
     console.log language
+    ctx.shadowOffsetX = 2
+    ctx.shadowOffsetY = 2
+    ctx.shadowBlur = 4
+    ctx.shadowColor ='grey'
     ctx.beginPath()
     ctx.moveTo(x,y)
     ctx.arc x, y, @radius, @currentRadians, @currentRadians + percentInRadians, false
