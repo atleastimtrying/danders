@@ -6,11 +6,11 @@ class window.Node
     @languages = data.languages
     @colour = "rgba(0,0,0,0.5)"
     @currentRadians = 0
-    @makeImage(@languages)
+    @sprite = @makeImage(@languages)
 
   draw: =>
     @ctx.translate @x, @y 
-    #draw image
+    @ctx.drawImage @sprite, -@radius, -@radius
     @ctx.translate -@x, -@y
 
   makeImage: (languages)->
@@ -19,7 +19,10 @@ class window.Node
     canvas.width = @radius *2
     canvas.height = @radius *2
     @drawArcByPercentage(ctx,language, percent,canvas.width/2,canvas.height/2) for language, percent of @languages
-    window.open(canvas.toDataURL(), "pieImage", "left=0,top=0,width=#{canvas.width},height=#{canvas.height},toolbar=0,resizable=0")
+    #window.open(canvas.toDataURL(), "pieImage", "left=0,top=0,width=#{canvas.width},height=#{canvas.height},toolbar=0,resizable=0")
+    img = new Image()
+    img.src = canvas.toDataURL()
+    img
 
   drawArcByPercentage: (ctx,language, percent,x,y)->
     percentInRadians = window.app.percentToRadians percent
