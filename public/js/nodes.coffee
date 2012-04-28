@@ -23,3 +23,5 @@ class window.Nodes
     @collection.push node
     
     @newChildNode(follower, i, data.followers.length, node) for follower,i in data.followers
+
+    @app.hideMask()

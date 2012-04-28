@@ -27,6 +27,14 @@ class window.App
       Scala: "#cc3"
       Clojure: "#33c"
 
+  hideMask: () ->
+    # start fade
+    $('#mask').removeClass('show').addClass('hide')
+
+  showMask: () ->
+    # start fade
+    $('#mask').removeClass('hide').addClass('show')
+
   showInfoBox: (node) ->  
     info_span = $('span')
     info_span.html node.name
