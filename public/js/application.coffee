@@ -14,11 +14,15 @@ class window.App
     @resize()
     @animate()
 
-  showInfoBox: (node) ->
+  showInfoBox: (node) ->  
     info_span = $('span')
     info_span.html node.name
     info_span.css {top:"#{node.y}px", left:"#{node.x}px"}
+    info_span.show()
 
+  hideInfoBox:->
+    $('span').hide()
+    
   wipe: ->
     @ctx.fillStyle = '#efefef'
     @ctx.fillRect 0, 0, @width, @height

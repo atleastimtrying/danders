@@ -29,6 +29,7 @@
     };
     Nodes.prototype.newMasterNode = function(data) {
       var follower, i, node, _len, _ref, _results;
+      this.collection = [];
       node = new Node(this.app.ctx, data, this.app.width / 2, this.app.height / 2, 3);
       this.collection.push(node);
       _ref = data.followers;

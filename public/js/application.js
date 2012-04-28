@@ -22,10 +22,14 @@
       var info_span;
       info_span = $('span');
       info_span.html(node.name);
-      return info_span.css({
+      info_span.css({
         top: "" + node.y + "px",
         left: "" + node.x + "px"
       });
+      return info_span.show();
+    };
+    App.prototype.hideInfoBox = function() {
+      return $('span').hide();
     };
     App.prototype.wipe = function() {
       this.ctx.fillStyle = '#efefef';

@@ -4,7 +4,8 @@ class window.Input
     @input.keypress @keyPress
     $('a').click @showWindow
 
-    $('canvas').mousemove @mouseMove
+    @app.canvas.mousemove @mouseMove
+    @app.canvas.click @canvasClick
     @showWindow()
     
   hideWindow: ->
@@ -37,6 +38,13 @@ class window.Input
 
     for node in @app.nodes.collection
       if @nodeHitTest mouseX, mouseY, node
-        console.log node.name
         @app.showInfoBox node
+      else
+        @app.hideInfoBox()
 
+  canvasClick: (event) =>
+    mouseX = event.pageX
+    mouseY = event.pageY
+    
+    for node in @app.nodes.collection
+      @app.request.user(node.name, @app.nodes.newMasterNode) if @nodeHitTest mouseX, mouseY, node
