@@ -13,7 +13,7 @@
       };
       this.nodes = new Nodes(this.ctx);
       this.request = new ApiRequester();
-      this.input = new Input();
+      this.input = new Input(this);
       $(window).resize(this.resize);
       this.resize();
       this.animate();

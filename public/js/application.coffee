@@ -9,7 +9,7 @@ class window.App
       @fill()
     @nodes = new Nodes(@ctx)
     @request = new ApiRequester()
-    @input = new Input()
+    @input = new Input(@)
     $(window).resize @resize
     @resize()
     @animate()

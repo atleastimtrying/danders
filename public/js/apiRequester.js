@@ -4,7 +4,7 @@
     function ApiRequester() {}
     ApiRequester.prototype.user = function(name, handler) {
       return $.get("/people/" + name + ".json", __bind(function(data) {
-        return handler(eval(data.responseText));
+        return handler(data);
       }, this));
     };
     return ApiRequester;

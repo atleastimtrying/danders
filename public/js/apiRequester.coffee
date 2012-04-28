@@ -5,5 +5,5 @@ class window.ApiRequester
   user: (name, handler) ->
   
     $.get "/people/#{name}.json", (data) =>
-      handler eval(data.responseText)
+      handler data
       
