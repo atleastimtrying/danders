@@ -17,5 +17,5 @@ class window.Input
 
   keyPress: (event)=>
     if event.keyCode is 13
-      @app.request.user @input.val(), @app.yell
+      @app.request.user @input.val(), @app.nodes.newMasterNode
       @hideWindow()

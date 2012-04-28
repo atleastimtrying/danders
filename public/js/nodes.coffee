@@ -1,5 +1,5 @@
 class window.Nodes
-  constructor: (@ctx)->
+  constructor: (@app)->
     @collection = []
 
   draw: =>
@@ -13,6 +13,13 @@ class window.Nodes
       name: 'Dan'
       followers: 1
 
-  newNode: (data)->
-    node = new Node @ctx, data
+  newChildNode: (name, i)=>
+    console.log i
+    node = new ChildNode @app.ctx, name, @app.width/2 - i *30, @app.height/2 + 40, 1
     @collection.push node
+       
+  newMasterNode: (data)=>
+    node = new Node @app.ctx, data, @app.width/2, @app.height/2, 3
+    @collection.push node
+    
+    @newChildNode(follower, i) for follower,i in data.followers

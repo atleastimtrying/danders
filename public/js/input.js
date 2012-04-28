@@ -21,7 +21,7 @@
     };
     Input.prototype.keyPress = function(event) {
       if (event.keyCode === 13) {
-        this.app.request.user(this.input.val(), this.app.yell);
+        this.app.request.user(this.input.val(), this.app.nodes.newMasterNode);
         return this.hideWindow();
       }
     };

@@ -11,7 +11,12 @@
         this.closePath();
         return this.fill();
       };
-      this.nodes = new Nodes(this.ctx);
+      this.ctx.percentToRadians = function(percent) {
+        var radians;
+        radians = degrees * (Math.pi / 180);
+        return radians;
+      };
+      this.nodes = new Nodes(this);
       this.request = new ApiRequester();
       this.input = new Input(this);
       $(window).resize(this.resize);
@@ -43,8 +48,16 @@
       this.ctx.fillEllipse(0, this.height, 10);
       return this.ctx.fillEllipse(this.width, this.height, 10);
     };
-    App.prototype.yell = function(data) {
-      return console.log(data);
+    App.prototype.getLanguageColour = function(language) {
+      return this.colours[language];
+    };
+    App.prototype.colours = {
+      Javascript: "green",
+      CoffeeScript: "brown",
+      Java: "orange",
+      Python: "yellow",
+      Ruby: "red",
+      PHP: "purple"
     };
     return App;
   })();

@@ -7,7 +7,10 @@ class window.App
       @arc x, y, radius, 0, Math.PI * 2, false
       @closePath()
       @fill()
-    @nodes = new Nodes(@ctx)
+    @ctx.percentToRadians = (percent)->
+      radians = degrees * (Math.pi/180)
+      return radians
+    @nodes = new Nodes(@)
     @request = new ApiRequester()
     @input = new Input(@)
     $(window).resize @resize
@@ -40,7 +43,15 @@ class window.App
     @ctx.fillEllipse 0, @height, 10
     @ctx.fillEllipse @width, @height, 10
 
-  yell: (data)-> console.log data
+  getLanguageColour: (language)->
+    return @colours[language]
 
+  colours:
+    Javascript:"green"
+    CoffeeScript:"brown"
+    Java:"orange"
+    Python:"yellow"
+    Ruby:"red"
+    PHP: "purple"
 $ ->
   window.app = new App
