@@ -1,19 +1,11 @@
 (function() {
+  var __bind = function(fn, me){ return function(){ return fn.apply(me, arguments); }; };
   window.ApiRequester = (function() {
     function ApiRequester() {}
-    ApiRequester.prototype.repos = function(name) {
-      return $.get('/repos/#{name}.json', function(data) {
-        var result;
-        return result = 'fail!';
-      });
-    };
-    ApiRequester.prototype.user = function(name) {
-      var result;
-      result = 'fail!';
-      $.get('/people/#{name}.json', function(data) {
-        return result = 'fail!';
-      });
-      return result;
+    ApiRequester.prototype.user = function(name, handler) {
+      return $.get("/people/" + name + ".json", __bind(function(data) {
+        return handler(eval(data.responseText));
+      }, this));
     };
     return ApiRequester;
   })();
