@@ -38,7 +38,6 @@ class window.Node
   drawArcByPercentage: (ctx,language, percent,x,y)->
     percentInRadians = window.app.percentToRadians percent
     colour = app.getLanguageColour(language)
-    console.log language
     ctx.shadowOffsetX = 2
     ctx.shadowOffsetY = 2
     ctx.shadowBlur = 4

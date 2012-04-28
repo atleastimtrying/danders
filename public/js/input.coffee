@@ -3,6 +3,7 @@ class window.Input
     @input = $('input')
     @input.keypress @keyPress
     $('a').click @showWindow
+    #$('#back').click @goBack
 
     @app.canvas.mousemove @mouseMove
     @app.canvas.click @canvasClick
@@ -54,3 +55,5 @@ class window.Input
        
         @app.request.user(node.name, @app.nodes.newMasterNode) 
         return
+  #goBack: (event)=>
+  #  @app.request.user(@app.request.previousRequest, @app.nodes.newMasterNode) 

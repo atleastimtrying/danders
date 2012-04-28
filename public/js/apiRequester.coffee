@@ -1,9 +1,10 @@
 class window.ApiRequester
   constructor: (@app)->
-    #dunno yet?
 
   user: (name, handler) ->
-  
+    # if @app.nodes.collection[0]
+    #   $("#back").show()
+    #   @previousRequest = @app.nodes.collection[0].name
     $.get("/people/#{name}.json", (data) =>
       handler data
     ).error ()=> 

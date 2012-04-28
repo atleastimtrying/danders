@@ -31,6 +31,13 @@ class window.App
       Clojure: "#33c"
       "Objective-C": "#3c3"
       "C": "#fff0f0"
+      "Perl": "#fffff0"
+      "Prolog": "#b00b1e5"
+      "Shell": "#cc0cc0"
+      "Lua": "gold"
+      "Erlang": "#218376"
+      "Emacs Lisp": "#986734"
+      "Scheme": "#ededde"
 
   hideMask: () ->
     # start fade
@@ -41,8 +48,8 @@ class window.App
     $('#mask').removeClass('hide').addClass('show')
 
   showInfoBox: (node) ->  
-    info_span = $('span')
-    info_span.html node.name
+    info_span = $('#sidebar')
+    info_span.html "<p>#{node.name}</p>"
     info_span.show()
 
   hideInfoBox:->

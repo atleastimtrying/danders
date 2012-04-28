@@ -63,7 +63,8 @@ div#key{
   display:block;
   width:200px;
 }
-a{
+a, 
+div#back{
   position:absolute;
   top:5px;
   right:5px;
@@ -75,12 +76,17 @@ a{
   text-decoration:none;
   border:1px solid #333;
 }
-a:hover{
+a:hover, 
+div#back:hover{
   background:#333;
   color:#efefef;
   border:1px solid #efefef;
 }
-span{
+div#back{
+  top:40px;
+  display:none;
+}
+div#sidebar{
   height:100%;
   width:200px;
   border-right:1px solid #000;
@@ -90,7 +96,10 @@ span{
   position: absolute;
   z-index: 3;
   text-align:left;
-  padding:5px;
+  padding:0 5px;
+}
+div#sidebar p{
+  padding-top:5px;
 }
 .colourblock{
   width:20px;
