@@ -2,13 +2,13 @@ GITHUB_USERS_API = "https://api.github.com/users/"
 GITHUB_REPOS_API = "https://api.github.com/users/"
 
 get '/' do
-  file_path = File.join(File.dirname(__FILE__), '..', 'public', "index.html") 
+  file_path = File.join(File.dirname(__FILE__), 'public', "index.html") 
 	content_type File.extname(file_path)
 	File.read(file_path)
 end
 
 get %r{/public/(.+)} do |url|
-	file_path = File.join(File.dirname(__FILE__), '..', 'public', "#{url}") 
+	file_path = File.join(File.dirname(__FILE__),'public', "#{url}") 
 	content_type File.extname(file_path)
 	File.read(file_path)
 end

@@ -1,8 +1,7 @@
 class window.Node
   constructor: (@ctx, data, @x, @y, scale)->
     @name = data.name
-    @radius = data.repo_count * scale
-    debugger
+    @radius = data.repos.length * scale
     @followers = data.followers
     @languages = data.languages
     @colour = "rgba(0,0,0,0.5)"
