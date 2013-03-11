@@ -2,6 +2,7 @@ class window.Node
   constructor: (@ctx, data, @x, @y, scale)->
     @name = data.name
     @radius = data.repo_count * scale
+    debugger
     @followers = data.followers
     @languages = data.languages
     @colour = "rgba(0,0,0,0.5)"
@@ -27,21 +28,20 @@ class window.Node
   makeImage: (languages)->
     canvas = document.createElement('canvas')
     ctx = canvas.getContext('2d')
-    canvas.width = @radius *2 + 10
-    canvas.height = @radius *2 + 10
+    canvas.width = @radius * 2 + 10
+    canvas.height = @radius * 2 + 10
     @drawArcByPercentage(ctx,language, percent,@radius,@radius) for language, percent of @languages
-    #window.open(canvas.toDataURL(), "pieImage", "left=0,top=0,width=#{canvas.width},height=#{canvas.height},toolbar=0,resizable=0")
     img = new Image()
     img.src = canvas.toDataURL()
     img
 
-  drawArcByPercentage: (ctx,language, percent,x,y)->
+  drawArcByPercentage: (ctx, language, percent, x, y)->
     percentInRadians = window.app.percentToRadians percent
     colour = app.getLanguageColour(language)
     ctx.shadowOffsetX = 2
     ctx.shadowOffsetY = 2
     ctx.shadowBlur = 4
-    ctx.shadowColor ='grey'
+    ctx.shadowColor = 'grey'
     ctx.beginPath()
     ctx.moveTo(x,y)
     ctx.arc x, y, @radius, @currentRadians, @currentRadians + percentInRadians, false

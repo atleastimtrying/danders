@@ -10,25 +10,25 @@ class window.App
       @arc x, y, radius, 0, Math.PI * 2, false
       @closePath()
       @fill()
-    @nodes = new Nodes(@)
-    @request = new ApiRequester(@)
-    @input = new Input(@)
+    @nodes = new Nodes @
+    @request = new ApiRequester @
+    @input = new Input @
     $(window).resize @resize
     @resize()
     @animate()
     @colours =
-      JavaScript:"green"
-      CoffeeScript:"brown"
-      Java:"orange"
-      Python:"yellow"
-      Ruby:"red"
-      PHP: "purple"
+      'JavaScript':"green"
+      'CoffeeScript':"brown"
+      'Java':"orange"
+      'Python':"yellow"
+      'Ruby':"red"
+      'PHP': "purple"
       "C#": "pink"
       "C++": "teal"
-      VimL: "silver"
-      Haskell: "#333"
-      Scala: "#cc3"
-      Clojure: "#33c"
+      'VimL': "silver"
+      'Haskell': "#333"
+      'Scala': "#cc3"
+      'Clojure': "#33c"
       "Objective-C": "#3c3"
       "C": "#fff0f0"
       "Perl": "#fffff0"
@@ -48,7 +48,7 @@ class window.App
     $('#mask').removeClass('hide').addClass('show')
 
   showInfoBox: (node) ->  
-    info_span = $('#sidebar')
+    info_span = $ '#sidebar'
     info_span.html "<p>#{node.name}</p>"
     info_span.show()
 
@@ -92,7 +92,7 @@ class window.App
 
   percentToRadians: (percent)->
     degrees = (percent/100) * 360
-    radians = @toRadians(degrees)
+    radians = @toRadians degrees
     return radians
 
   roundom: (int)->

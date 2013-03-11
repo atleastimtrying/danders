@@ -1,5 +1,5 @@
-GITHUB_USERS_API = "http://github.com/api/v2/json/user/show/"
-GITHUB_REPOS_API = "http://github.com/api/v2/json/repos/show/"
+GITHUB_USERS_API = "https://api.github.com/users/"
+GITHUB_REPOS_API = "https://api.github.com/users/"
 
 get '/' do
   file_path = File.join(File.dirname(__FILE__), '..', 'public', "index.html") 
@@ -32,31 +32,30 @@ end
 def get_user(username)
 
 	# create person
-	p = Person.new
+	person = Person.new
 
 	# get base user
-	github_user = HTTParty.get("#{GITHUB_USERS_API}#{username}")["user"]
-	github_followers = HTTParty.get("#{GITHUB_USERS_API}#{username}/followers")["users"]
-	github_repos = HTTParty.get("#{GITHUB_REPOS_API}#{username}")["repositories"]
-
-	p.name = github_user["name"]
-	p.repo_count = github_user["public_repo_count"]
+	github_user = HTTParty.get("#{GITHUB_USERS_API}#{username}")
+	github_followers = HTTParty.get("#{GITHUB_USERS_API}#{username}/followers")
+	github_repos = HTTParty.get("#{GITHUB_REPOS_API}#{username}/repos")
+	person.name = github_user["name"]
+	person.repo_count = github_user["public_repo_count"]
 
 	# followers
-	p.followers = github_followers
+	person.followers = github_followers
 
 	languages = []
 
 	# add repos and languages
 	github_repos.each do |repo|
-		p.repos << repo["name"]
+		person.repos << repo["name"]
 		languages << repo["language"]
 	end
 
-	p.languages = get_lang_distribution languages
+	person.languages = get_lang_distribution languages
 
 	# return
-	p
+	person
 
 end
 
